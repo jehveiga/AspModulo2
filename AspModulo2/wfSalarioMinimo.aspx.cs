@@ -17,6 +17,7 @@ namespace AspModulo2
         protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtPercentualDesconto.Visible = false;
+            // Selecionando o controle do indice, e escondendo o text-box personalizado
             if (rblPorcentagem.SelectedIndex == 3)
                 txtPercentualDesconto.Visible= true;
         }

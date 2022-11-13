@@ -11,6 +11,7 @@ namespace AspModulo2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // -- Exemplos de escrita no HTML --
             //Response.Write("<h2> Objeto Request </h2>");
             //Response.Write("<h3> txtSalario: "+ Request.Form["txtSalario"] +" </h3>");
             //Response.Write("<h3> txtPercentual: " + Request.Form["txtPercentualDesconto"] + " </h3>");
@@ -23,7 +24,7 @@ namespace AspModulo2
             // Page.PreviousPage - Para obter a Page (dados/controle) que transferiu para a página atual 
             RadioButtonList radioBtn = (RadioButtonList)Page.PreviousPage.FindControl("rblPorcentagem");
 
-            // Request.Form - Para obter a coleção de dados que foi submetido do formulário
+            // Request.Form - Para obter a coleção de dados que foi submetido do formulário, através de cada controle
             Double percDesconto = Convert.ToDouble(Request.Form["txtPercentualDesconto"]);
             Double desconto = (salarioBase * percDesconto) / 100;
             Double salarioLiquido = salarioBase - desconto;
