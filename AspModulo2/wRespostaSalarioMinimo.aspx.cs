@@ -20,12 +20,31 @@ namespace AspModulo2
                 Response.Redirect("~/wfSalarioMinimo.aspx");
 
             Double salarioBase = Convert.ToDouble(Request.Form["txtSalario"]);
+            Double percDesconto = 0;
 
             // Page.PreviousPage - Para obter a Page (dados/controle) que transferiu para a página atual 
             RadioButtonList radioBtn = (RadioButtonList)Page.PreviousPage.FindControl("rblPorcentagem");
+            if (radioBtn.SelectedIndex != 3)
+            {
+                switch (radioBtn.SelectedIndex)
+                {
+                    case 0:
+                        percDesconto = 10;
+                        break;
+                    case 1:
+                        percDesconto = 20;
+                        break;
+                    case 2:
+                        percDesconto = 30;
+                        break;
+                }
+            }
+            else
+            {
+                percDesconto = Convert.ToDouble(Request.Form["txtPercentualDesconto"]);
+            }
 
             // Request.Form - Para obter a coleção de dados que foi submetido do formulário, através de cada controle
-            Double percDesconto = Convert.ToDouble(Request.Form["txtPercentualDesconto"]);
             Double desconto = (salarioBase * percDesconto) / 100;
             Double salarioLiquido = salarioBase - desconto;
 
