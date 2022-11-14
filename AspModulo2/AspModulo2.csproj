@@ -70,6 +70,8 @@
     <Content Include="Web.config" />
     <Content Include="wFormFilmes.aspx" />
     <Content Include="wfSalarioMinimo.aspx" />
+    <Content Include="wLogin.aspx" />
+    <Content Include="wPrincipal.aspx" />
     <Content Include="wRespostaFilmes.aspx" />
     <Content Include="wRespostaSalarioMinimo.aspx" />
   </ItemGroup>
@@ -88,6 +90,20 @@
     </Compile>
     <Compile Include="wfSalarioMinimo.aspx.designer.cs">
       <DependentUpon>wfSalarioMinimo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wLogin.aspx.cs">
+      <DependentUpon>wLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wLogin.aspx.designer.cs">
+      <DependentUpon>wLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wPrincipal.aspx.cs">
+      <DependentUpon>wPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wPrincipal.aspx.designer.cs">
+      <DependentUpon>wPrincipal.aspx</DependentUpon>
     </Compile>
     <Compile Include="wRespostaFilmes.aspx.cs">
       <DependentUpon>wRespostaFilmes.aspx</DependentUpon>
