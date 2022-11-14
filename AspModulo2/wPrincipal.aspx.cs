@@ -11,7 +11,9 @@ namespace AspModulo2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lbLogin.Text = String.Empty;
+            if (Request.Cookies["login"] != null)
+                lbLogin.Text = Request.Cookies["login"].Value;
         }
     }
 }

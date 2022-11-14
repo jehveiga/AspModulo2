@@ -17,6 +17,13 @@ namespace AspModulo2
             usuários.Add("teste1");
             usuários.Add("teste2");
             usuários.Add("teste3");
+
+            if (Request.Cookies["login"] != null)
+            {
+                txtLogin.Text = Request.Cookies["login"].Value;
+                txtPassword.Text = Request.Cookies["password"].Value;
+                //btnLogar_Click(sender, e);
+            }
         }
 
         protected void btnLogar_Click(object sender, EventArgs e)
@@ -26,12 +33,15 @@ namespace AspModulo2
             {
                 if(txtLogin.Text == user && senhaPadrao == txtPassword.Text)
                 {
+                    HttpCookie login = new HttpCookie("login", txtLogin.Text);
+                    Response.Cookies.Add(login);
+                    Response.Cookies.Add(new HttpCookie("password", txtPassword.Text));
                     Response.Redirect("~/wPrincipal.aspx");
-                    flag= true;
                 }
             }
 
             Response.Write($"<h2>Usuário ou senha incorreto</h2>");
+            return;
         }
     }
 }
