@@ -28,7 +28,7 @@ namespace AspModulo2
                 Filmes.Add(filme.Text);
             }
 
-            Response.Redirect("~/wRespostaFilmes.aspx");
+            //Response.Redirect("~/wRespostaFilmes.aspx");
         }
     }
 }

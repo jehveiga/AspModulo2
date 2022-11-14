@@ -15,7 +15,7 @@
             <asp:DropDownList runat="server" ID="ddlFilmes"></asp:DropDownList>
             <asp:TextBox ID="tbValor" runat="server" ToolTip="Digite o nome do filme para inserir na sua lista"></asp:TextBox>
             <asp:Button ID="btnInserirNome" runat="server" Text="Inserir" OnClick="btnInserirNome_Click"></asp:Button>
-            <asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click"></asp:Button>
+            <asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click" PostBackUrl="~/wRespostaFilmes.aspx"></asp:Button>
         </div>
     </form>
 </body>

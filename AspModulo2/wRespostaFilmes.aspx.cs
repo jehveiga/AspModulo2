@@ -11,7 +11,14 @@ namespace AspModulo2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(PreviousPage.Filmes != null)
+            {
+                List<String> filmes = PreviousPage.Filmes;
+                foreach (var item in filmes)
+                {
+                    Response.Write($"<h2>{item}</h2>");
+                }
+            }
         }
     }
 }
