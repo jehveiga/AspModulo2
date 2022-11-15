@@ -18,10 +18,15 @@
             <asp:Label ID="lbSessionID" runat="server" Text="Session ID:"></asp:Label>
             <asp:TextBox ID="txtSession" runat="server"></asp:TextBox>
             <br />
-            <asp:Label ID="lbContador" runat="server" Text="Contado da Session:"></asp:Label>
+            <asp:Label ID="lbContadorSession" runat="server" Text="Contado da Session:"></asp:Label>
             <asp:TextBox ID="txtContador" runat="server"></asp:TextBox>
             <asp:Button ID="btnConts" runat="server" Text="ADD" OnClick="btnConts_Click" />
             <asp:Button ID="btnRemoveS" runat="server" Text="Remover" OnClick="btnRemoveS_Click" />
+            <br />
+            <br />
+            <asp:Label ID="lbContadorApp" runat="server" Text="Contador da aplicação:"></asp:Label>
+            <asp:TextBox ID="txtContadorApp" runat="server"></asp:TextBox>
+            <asp:Button ID="btnAdicionarApp" runat="server" Text="ADD" OnClick="btnAdicionarApp_Click" />
         </div>
     </form>
 </body>

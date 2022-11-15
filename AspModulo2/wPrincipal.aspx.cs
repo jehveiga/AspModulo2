@@ -17,6 +17,7 @@ namespace AspModulo2
                 if (Request.Cookies["login"] != null)
                     lbLogin.Text = Request.Cookies["login"].Value;
             }
+
             if (Session["login"] is null) // validando se a varíavel login criada de session tem valor
             {
                 Response.Redirect("~/wLogin.aspx");
@@ -29,6 +30,11 @@ namespace AspModulo2
                 txtSession.Text = Session.SessionID; // ID criado para sessão atual.
                 txtContador.Text = Session["contador"].ToString();
             }
+
+            if (Application["contador"] is null) 
+                Application["contador"] = 0; // criando uma varíavel application que é compartilhada para applicação
+            else
+                txtContadorApp.Text = Application["contador"].ToString();
         }
 
         protected void btnExecutar_Click(object sender, EventArgs e)
@@ -62,6 +68,11 @@ namespace AspModulo2
         protected void btnRemoveS_Click(object sender, EventArgs e)
         {
             Session.Remove("contador");
+        }
+
+        protected void btnAdicionarApp_Click(object sender, EventArgs e)
+        {
+            Application["contador"] = Convert.ToInt32(Application["contador"]) + 1; // adicionando +1 ao varíavel contador da applicação
         }
     }
 }
