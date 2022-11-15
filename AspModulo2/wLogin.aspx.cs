@@ -22,7 +22,7 @@ namespace AspModulo2
             {
                 txtLogin.Text = Request.Cookies["login"].Value;
                 txtPassword.Text = Request.Cookies["password"].Value;
-                //btnLogar_Click(sender, e);
+                btnLogar_Click(sender, e);
             }
         }
 
@@ -33,9 +33,13 @@ namespace AspModulo2
             {
                 if(txtLogin.Text == user && senhaPadrao == txtPassword.Text)
                 {
+                    // cookie
                     HttpCookie login = new HttpCookie("login", txtLogin.Text);
                     Response.Cookies.Add(login);
                     Response.Cookies.Add(new HttpCookie("password", txtPassword.Text));
+
+                    // session
+                    Session["login"] = txtLogin.Text; // criando uma varíavel Session e atribuindo o valor do login
                     Response.Redirect("~/wPrincipal.aspx");
                 }
             }

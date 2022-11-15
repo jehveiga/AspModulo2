@@ -17,6 +17,10 @@ namespace AspModulo2
                 if (Request.Cookies["login"] != null)
                     lbLogin.Text = Request.Cookies["login"].Value;
             }
+            if (Session["login"] is null) // validando se a varíavel login de criada de session tem valor
+            {
+                Response.Redirect("~/wLogin.aspx");
+            }
         }
 
         protected void btnExecutar_Click(object sender, EventArgs e)
