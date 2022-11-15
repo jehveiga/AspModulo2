@@ -17,9 +17,17 @@ namespace AspModulo2
                 if (Request.Cookies["login"] != null)
                     lbLogin.Text = Request.Cookies["login"].Value;
             }
-            if (Session["login"] is null) // validando se a varíavel login de criada de session tem valor
+            if (Session["login"] is null) // validando se a varíavel login criada de session tem valor
             {
                 Response.Redirect("~/wLogin.aspx");
+            }
+            else
+            {
+                lbLogin.Text = Session["login"].ToString(); // adiciona o nome do login criado pelo session
+                if (Session["contador"] is null)
+                    Session["contador"] = 0;
+                txtSession.Text = Session.SessionID; // ID criado para sessão atual.
+                txtContador.Text = Session["contador"].ToString();
             }
         }
 
@@ -44,6 +52,16 @@ namespace AspModulo2
                 texto += $"{pos}: {Request.Cookies[pos].Value}</p>"; // obtendo o valor especificado pelo nome da chave obtida anteriormente
             }
             Response.Write(texto); // Escreve na página o texto forncecido no cado em HTML
+        }
+
+        protected void btnConts_Click(object sender, EventArgs e)
+        {
+            Session["contador"] = Convert.ToInt32(Session["contador"]) + 1;
+        }
+
+        protected void btnRemoveS_Click(object sender, EventArgs e)
+        {
+            Session.Remove("contador");
         }
     }
 }
