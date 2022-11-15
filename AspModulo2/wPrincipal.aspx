@@ -11,6 +11,9 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="lbLogin" runat="server" Text="Teste"></asp:Label>
+            <br />
+            <asp:Button ID="btnExecutar" runat="server" Text="Apaga Cookie" OnClick="btnExecutar_Click" />
+            <asp:Button ID="btnListar" runat="server" Text="Listar Cookies" OnClick="btnListar_Click" />
         </div>
     </form>
 </body>
