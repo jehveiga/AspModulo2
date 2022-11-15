@@ -27,6 +27,7 @@
             <asp:Label ID="lbContadorApp" runat="server" Text="Contador da aplicação:"></asp:Label>
             <asp:TextBox ID="txtContadorApp" runat="server"></asp:TextBox>
             <asp:Button ID="btnAdicionarApp" runat="server" Text="ADD" OnClick="btnAdicionarApp_Click" />
+            <asp:Button ID="btnRemoveApp" runat="server" Text="Remover" OnClick="btnRemoveApp_Click" />
         </div>
     </form>
 </body>

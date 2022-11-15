@@ -9,6 +9,10 @@ namespace AspModulo2
 {
     public partial class wPrincipal : System.Web.UI.Page
     {
+        // Cookie - são armazenado no lado cliente
+        // Session - São armazenado no lado servidor, os dados estão relacionados para um usuário
+        // Application - está relacionado a aplicação, qualquer usuário acessa os dados relacionado a application
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
@@ -32,9 +36,9 @@ namespace AspModulo2
             }
 
             if (Application["contador"] is null) 
-                Application["contador"] = 0; // criando uma varíavel application que é compartilhada para applicação
+                Application["contador"] = 0; // criando uma varíavel application que é compartilhada para applicação se tiver nulo
             else
-                txtContadorApp.Text = Application["contador"].ToString();
+                txtContadorApp.Text = Application["contador"].ToString(); // Se não for nulo, atribui o valor a textbox
         }
 
         protected void btnExecutar_Click(object sender, EventArgs e)
@@ -67,12 +71,19 @@ namespace AspModulo2
 
         protected void btnRemoveS_Click(object sender, EventArgs e)
         {
-            Session.Remove("contador");
+            Session.Remove("contador"); // remove a Session contador criado
         }
 
         protected void btnAdicionarApp_Click(object sender, EventArgs e)
         {
+            Application.Lock(); // bloqueia o acesso a varíavel da aplicação
             Application["contador"] = Convert.ToInt32(Application["contador"]) + 1; // adicionando +1 ao varíavel contador da applicação
+            Application.UnLock(); // desbloqueia o acesso a varíavel da aplicação
+        }
+
+        protected void btnRemoveApp_Click(object sender, EventArgs e)
+        {
+            Application.Remove("contador"); // remove o Application contador criado
         }
     }
 }
